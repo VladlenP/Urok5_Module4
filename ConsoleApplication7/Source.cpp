@@ -2,6 +2,7 @@
 #include <iostream>
 #include <Windows.h>
 #include <locale>
+#include <time.h>
 
 using namespace std;
 char s;
@@ -18,18 +19,28 @@ Tryagain1:
 	{
 		system("cls");
 		cout << "Задание номер 1" << endl;
-		int pricea;
-		cout << "Введите стоимость одного товара" << endl;
-		cin >> pricea;
-		cout << "Введите количество товара (в штуках)" << endl;
-		int number;
-		cin >> number;
-		int pricenumber;
-		for (int i = 1; i <= number; i++)
+		int kolvosports;
+		cout << "Введите количество Спортсменов" << endl;
+		cin >> kolvosports;
+		int kolvoigr;
+		cout << "Введите количество Игр" << endl;
+		cin >> kolvoigr;
+		srand(time(0));
+		int balls;
+		int summ = 0;
+		for (int i = 1; i <= kolvosports; i++)
 		{
-			pricenumber = pricea*i;
-			cout << pricenumber << " штук" << endl;
+			balls = 0;
+			summ = 0;
+			for (int j = 1; j <= kolvoigr; j++)
+			{
+				balls = 1 + rand() % 20;
+				summ += balls;
+			}
+
+			cout << "Спортсмен " << i << " Заработал" << " - " << summ << endl;
 		}
+
 		cout << "Хотите продолжить? (y/n)" << endl;
 		cin >> s;
 		if (s == 'y')
@@ -44,17 +55,23 @@ Tryagain1:
 	{
 		system("cls");
 		cout << "Задание номер 2" << endl;
-		int pound = 453;
-		int kg;
-		cout << "Введите количество киллограммов" << endl;
-		cin >> kg;
-		for (int i = 1; i <= kg; i++)
+		int kolvouchen;
+		cout << "Введите количество Учеников" << endl;
+		cin >> kolvouchen;
+		srand(time(0));
+		int k1, k2, sum1 = 0, sum2 = 0;
+		for (int i = 1; i <= kolvouchen; i++)
 		{
-			int ipound;
-			ipound = i*pound;
-			cout << i << " кг." << " " << ipound << " фунтов" << endl;
-
+			k1 = 1 + rand() % 5;
+			k2 = 1 + rand() % 5;
+			sum1 += k1;
+			sum2 += k2;
 		}
+		float sr1 = sum1 / (float)kolvouchen;
+		float sr2 = sum2 / (float)kolvouchen;
+		cout.precision(3);
+		cout << "1 класс - " << sr1 << endl;
+		cout << "2 класс - " << sr2 << endl;
 		cout << "Хотите продолжить? (y/n)" << endl;
 		cin >> s;
 		if (s == 'y')
@@ -69,17 +86,30 @@ Tryagain1:
 	{
 		system("cls");
 		cout << "Задание номер 3" << endl;
-		float mm = 25.4;
-		int duym;
-		cout << "Введите расстояние в дюймах" << endl;
-		cin >> duym;
-		for (int i = 1; i <= duym; i++)
+		int region;
+		cout << "Введите количество Областей" << endl;
+		cin >> region;
+		srand(time(0));
+		int gitelei;
+		int ploshad;
+		int summ1 = 0;
+		int summ2 = 0;
+		for (int i = 1; i <= region; i++)
 		{
-			float imm;
-			imm = i*mm;
-			cout << i << " дюймов" << " " << imm << " миллиметров" << endl;
-
+			gitelei = 1 + rand() % 1000;
+			ploshad = 1 + rand() % 500;
+			summ1 += gitelei;
+			summ2 += ploshad;
 		}
+		cout.precision(3);
+		float plotnost;
+		plotnost = (summ1 / region) / (summ2 / region);
+		cout << "Всего в " << region << " областях " << " Всего жителей" << " - " << summ1 << endl;
+		cout << "Всего в " << region << " областях " << " Общая площадь" << " - " << summ2 << endl;
+		cout << "Всего в " << region << " областях " << " Средняя плотность" << " - " << plotnost << endl;
+
+
+
 		cout << "Хотите продолжить? (y/n)" << endl;
 		cin >> s;
 		if (s == 'y')
@@ -94,62 +124,72 @@ Tryagain1:
 	{
 		system("cls");
 		cout << "Задание номер 4" << endl;
-		float dollar;
-		int tenge;
-		cout << "Введите курс Доллара по отношению к тенге" << endl;
-		cin >> dollar;
-		cout << "Введите количество тенге" << endl;
-		cin >> tenge;
-		for (int i = 1; i <= tenge; i++)
+		int p;
+		cout << "Спортзал Веселые Медведи" << endl;
+		cout << "За сегодня" << endl;
+		cout << "Введите количество Посетителей" << endl;
+		cin >> p;
+		int v;
+		int summ = 0;
+		int max = 0;
+		int min = 100;
+		cout << "Введите Возраст каждого поситителя" << endl;
+		for (int i = 1; i <= p; i++)
 		{
-			float idt;
-			idt = i*dollar;
-			cout << i << " тенге" << " " << idt << " долларов" << endl;
-
+			cin >> v;
+			summ += v;
+			if (v > max)
+				max = v;
+			if (v < min)
+				min = v;
 		}
+		float average = summ / (float)p;
+		cout << "Восего посетило" << p << " человек " << endl;
+		cout << "Возраст самого старшего посетителя " << max << " лет" << endl;
+		cout << "Возраст самого младшего посетителя " << min << " лет" << endl;
+		cout << "Средний возраст " << average << " лет" << endl;
+
+
 		cout << "Хотите продолжить? (y/n)" << endl;
 		cin >> s;
 		if (s == 'y')
 		{
 			goto Tryagain1;
 		}
-	}
-	case 5:
-		{
-			system("cls");
-			cout << "Задание номер 5" << endl;
-			float multipletable = 7;
-			int seven;
-			cout << "Введите количество 7" << endl;
-			cin >> seven;
-			for (int i = 1; i <= seven; i++)
-			{
-				float iseven;
-				iseven = i*multipletable;
-				cout << i << " = " << iseven << endl;
-
-			}
-			cout << "Хотите продолжить? (y/n)" << endl;
-			cin >> s;
-			if (s == 'y')
-			{
-				goto Tryagain1;
-			}
 		else
 
 			break;
 	}
-	case 6:
+	case 5:
 	{
 		system("cls");
-		cout << "Задание номер 6" << endl;
-		int kolvosports;
-		cin >> kolvosports;
-		int kolvoigr;
-		cin >> kolvoigr;
+		cout << "Задание номер 5" << endl;
+		int p;
+		int i = 15, n = 0, x;
+		do
+		{
+			n++;
+		Tryagainhere:
+			cout << "Осталось" << i << " ящиков" << endl;
+			cout << "Сколько ящиков загрузить в " << n << " машину?" << endl;
+			cin >> x;
+			if (x > i)
+			{
+				cout << "Введено большее количество ящиков, чем осталось на складе" << endl;
+				goto Tryagainhere;
+			}
+			i -= x;
+		} while (i > 0);
+			cout << "Ящики закончились " << endl;
+		cout << "Хотите продолжить? (y/n)" << endl;
+		cin >> s;
+		if (s == 'y')
+		{
+			goto Tryagain1;
+		}
+		else
 
-
-		break;
+			break;
 	}
 	break;
 	}
